@@ -13,7 +13,7 @@ RUN echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu xenial main" > /et
     apt install -y ansible && \
     apt install -y python-pip --no-install-recommends && \
     pip --no-cache-dir install boto3 botocore && \
-    apt purge python-pip python-pip-whl && \
+    apt purge -y python-pip python-pip-whl && \
     apt autoclean && \
     rm -rf /var/lib/apt/lists/*
 
