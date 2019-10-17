@@ -10,8 +10,12 @@ RUN echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu xenial main" > /et
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367 && \
     apt update && \
     apt upgrade -y && \
-    apt install ansible -y && \
+    apt install -y ansible && \
+    apt install -y python-pip --no-install-recommends && \
+    pip --no-cache-dir install boto3 botocore && \
+    apt purge python-pip python-pip-whl && \
     apt autoclean && \
     rm -rf /var/lib/apt/lists/*
+
 
 USER jenkins
